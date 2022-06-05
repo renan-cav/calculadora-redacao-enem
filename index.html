@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" >
+    <title>Redação ENEM 2020</title>
+</head>
+<body>
+<main>
+    <h1>Compare sua nota da redação do ENEM com o resto do país</h1>
+
+    <p>
+        Qual foi sua nota na redação do ENEM em 2020?
+    </p>
+    <input class = "nota">
+    <p>
+        Você quer comparar sua nota com
+       <select id="uf">
+           <option value="BR">Brasil</option>
+           <option value="AC">Acre</option>
+           <option value="AL">Alagoas</option>
+           <option value="AM">Amazonas</option>
+           <option value="AP">Amapá</option>
+           <option value="BA">Bahia</option>
+           <option value="CE">Ceará</option>
+           <option value="DF">Distrito Federal</option>
+           <option value="ES">Espírito Santo</option>
+           <option value="GO">Goiás</option>
+           <option value="MA">Maranhão</option>
+           <option value="MG">Minas Gerais</option>
+           <option value="MS">Mato Grosso do Sul</option>
+           <option value="MT">Mato Grosso</option>
+           <option value="PA">Pará</option>
+           <option value="PB">Paraíba</option>
+           <option value="PE">Pernambuco</option>
+           <option value="PI">Piauí</option>
+           <option value="PR">Paraná</option>
+           <option value="RJ">Rio de Janeiro</option>
+           <option value="RN">Rio Grande do Norte</option>
+           <option value="RO">Rondônia</option>
+           <option value="RR">Roraima</option>
+           <option value="RS">Rio Grande do Sul</option>
+           <option value="SC">Santa Catarina</option>
+           <option value="SE">Sergipe</option>
+           <option value="SP">São Paulo</option>
+           <option value="TO">Tocantins</option>
+       </select>
+    </p>
+
+    <p>
+        Sua nota foi <output>...</output> do que a média no local escolhido
+    </p>
+        
+    <div class="hist">
+        <div class="barras">
+            <div>...</div>
+            <div>...</div>
+            <div>...</div>
+            <div>...</div>
+            <div>...</div>
+            <div>...</div>
+            <div>...</div>
+            <div>...</div>
+            <div>...</div>
+            <div>...</div>
+        </div>   
+    </div>
+    <div class="rotulo">
+        <div class="0">0-99</div>
+        <div class="1">100-199</div>
+        <div class="2">200-299</div>
+        <div class="3">300-399</div>
+        <div class="4">400-499</div>
+        <div class="5">500-599</div>
+        <div class="6">600-699</div>
+        <div class="7">700-799</div>
+        <div class="8">800-899</div>
+        <div class="9">900-1000</div>
+    </div>
+</main>
+<footer>
+    <a href='https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/sinopses-estatisticas/enem' target="_blank">Fonte: INEP(2020)</a>
+</footer>
+<script src="main.js"></script>    
+</body>
+</html>
