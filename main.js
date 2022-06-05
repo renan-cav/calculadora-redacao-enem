@@ -94,14 +94,10 @@ function calcular(nota){
     saida.style.color = 'blue'
     
   }
-  else if(nota >= media){
+  else if(nota < media){
     saida.textContent = 'MENOR'
     saida.style.fontWeight = 'bold'
     saida.style.color = 'yellow'
-  }
-
-  else{
-    saida.style.color = 'black'
   }
 
   let estudantes = notas [local]
