@@ -63,6 +63,7 @@ let medias = {
 let seletor = document.querySelector('select')
 let entrada = document.querySelector('input.nota')
 let saida = document.querySelector('output')
+let mostrarMedia = document.querySelector('output.mostraMedia')
 let barras = document.querySelectorAll('.barras > div')
 
 entrada.addEventListener('input', validar)
@@ -88,6 +89,11 @@ function validar(){
 function calcular(nota){
   let local = seletor.value.toLowerCase()
   let media = medias [local]
+
+  mostrarMedia.style.fontWeight = 'bolder'
+  mostrarMedia.textContent = ' ' + media
+  console.log(mostrarMedia)
+
   if(nota >= media){
     saida.textContent = 'MAIOR'
     saida.style.fontWeight = 'bold'
@@ -113,13 +119,15 @@ function calcular(nota){
       altura = 4
     }
 
-    barras[indice].style.height = altura + 'px'
-    barras[indice].textContent = notas
+    barras[indice].style.height = altura + 'px'    
+    barras[indice].textContent = estudantes
     
     indice++ 
-  }
+  } 
 }
 
 function limpar(){
   saida.textContent = '…'
+  saida.style.color = 'black'
+  mostrarMedia.textContent = '___'
 }
