@@ -14,22 +14,30 @@ h1{
 
 }
 
+h2{
+    font-weight: lighter;
+}
+
 main{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-footer{
-    margin: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items:center;
+.nota{
+    border: 2px solid rgb(83, 83, 83);
+    border-radius: 1000px;
+    margin: 5px 30px 20px 30px;
+}
+
+select{
+    border: 2px solid rgb(83, 83, 83);
+    border-radius: 1000px; 
 }
 
 .hist{
     border: 2px solid rgb(83, 83, 83);
-    border-radius: 1%;
+    border-radius: 10px;
     width:100%;
     max-width: 900px;
     height: 300px;
@@ -53,12 +61,6 @@ footer{
     background-color: rgb(128, 149, 163);
 }
 
-.marca{
-    display:flex;
-    flex-direction: column;
-    /*align-items: flex-start;*/
-}
-
 .rotulo{
     display: flex;
     flex-direction: row;
@@ -71,7 +73,14 @@ footer{
 .rotulo > div{
     background-color: rgb(224, 224, 224);
     border: 1px solid;
-    margin: 15px;    
+    margin: 15px;
+}
+
+footer{
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
 }
 
 a{
@@ -84,3 +93,4 @@ a:hover{
     font-size: large;
     font-weight: bolder;
 }
+
