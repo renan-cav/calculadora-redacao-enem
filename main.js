@@ -120,7 +120,7 @@ function calcular(nota){
     }
 
     barras[indice].style.height = altura + 'px'    
-    barras[indice].textContent = estudantes
+    barras[indice].textContent = estudante
     
     indice++ 
   } 
