@@ -1,3 +1,4 @@
+/* Cria objeto com o número de alunos no Brasil e por estado pela faixa de notas na redação do ENEM */
 let notas = {
   br : [199, 1939, 66988, 353464, 331851, 670072, 537652, 279558, 249840, 183373],
   ro : [4, 24, 872, 3954, 3747, 6598, 4427, 1883, 1522, 885],
@@ -29,6 +30,7 @@ let notas = {
   df : [1, 40, 1228, 6738, 6134, 13940, 11708, 5751, 4937, 3558],
 }
 
+/* Cria um segundo objeto com as médias das notas da redação do ENEM por estados e totalizadas nacionalmente */
 let medias = {
   br : 590.40,
   ro : 548.63,
@@ -60,19 +62,35 @@ let medias = {
   df : 593.81,
 }
 
+/* Variável que seleciona a tag 'select' do html */
 let seletor = document.querySelector('select')
+
+/* Variável que seleciona o input criado para a entrada da nota da redação do ENEM */
 let entrada = document.querySelector('input.nota')
-let saida = document.querySelector('output')
+
+/* Variável que seleciona a tag 'output' para retornar se a média do aluno foi menor ou maior que a média do estado/país */
+let saida = document.querySelector('output.maiorMenor')
+
+/* Variável que seleciona a tag 'output' que retorna na página a média do estado/país */
 let mostrarMedia = document.querySelector('output.mostraMedia')
+
+/* Variável que seleciona as divs filhas da div 'barras' */
 let barras = document.querySelectorAll('.barras > div')
 
+/* Evento de escuta que valida a nota inserida no input */
 entrada.addEventListener('input', validar)
+
+/* Evento de escuta para pegar o estado selecionado */
 seletor.addEventListener('change', validar)
 
+/*Função criada para validar a nota inserida no input */
 function validar(){
   let nota = entrada.value
 
+  /* Transforma a string inserida em um número integer */
   nota = parseInt(nota)
+
+  /* Condição que limita a validação de números entre 0 e 1000 e limpa a pesquisa caso nenhum número esteja inserido no input */
   if(nota > 0){
     calcular(nota)
   }
@@ -86,14 +104,22 @@ function validar(){
   }
 }
 
+/* Função criada para fazer o cálculo da nota e retornar as mudanças esperadas na página */
 function calcular(nota){
+
+  /* Cria variável que transforma os valores do seletor em caixa baixa */
   let local = seletor.value.toLowerCase()
+
+  /* Cria variável que pega as médias por localidade escolhida */
   let media = medias [local]
 
+  /* Transforma o output em negrito */
   mostrarMedia.style.fontWeight = 'bolder'
-  mostrarMedia.textContent = ' ' + media
-  console.log(mostrarMedia)
 
+  /* Muda o texto do HTML para mostrar a média do estado escolhido */
+  mostrarMedia.textContent = ' ' + media
+
+  /* Condição que transforma o HTML com as palavras 'MAIOR' ou 'MENOR' e reseta caso o valor do input seja apagado */  
   if(nota >= media){
     saida.textContent = 'MAIOR'
     saida.style.fontWeight = 'bold'
@@ -106,28 +132,49 @@ function calcular(nota){
     saida.style.color = 'yellow'
   }
 
+  /* Cria a variável estudantes pegando a faixa de notas da redação do ENEM  */
   let estudantes = notas [local]
+  /* Cria índice para ser usado no loop do histograma */
   let indice = 0
+
+  /* Cria divisor para padronizar histograma */
   let divisor = 3000
+
+  /* Cria condição para que as barras dos estados não fiquem pequenas no histograma */
   if (local != 'br'){
     divisor = 400
   }
 
+  /* Loop para alterar o tamanho das barras de acordo com o local escolhido */
   for (let estudante of estudantes){
+
+    /* Cria variável para criar a altura padronizada das barras no histograma */
     let altura = estudante / divisor
+
+    /* Condição para que as barras do histograma tenham um tamanho mínimo */
     if(altura < 1){
       altura = 4
     }
 
-    barras[indice].style.height = altura + 'px'    
+    /* Muda o CSS para que as barras mudem de tamanho */
+    barras[indice].style.height = altura + 'px'
+    
+    /* Muda o texto do HTML para inserir valores dentro das barras do histograma */
     barras[indice].textContent = estudante
     
     indice++ 
   } 
 }
 
+/* Função para resetar o HTML caso nenhum valor seja inserido no input */
 function limpar(){
+
+  /* Reseta o texto do output de 'MAIOR' ou 'MENOR' */
   saida.textContent = '…'
+
+  /* Corrige a cor do HTML (a função resetava o texto do HTML, mas não a cor) */
   saida.style.color = 'black'
+
+  /* Reseta o texto do output que mostra a média do local selecionado */
   mostrarMedia.textContent = '___'
 }
